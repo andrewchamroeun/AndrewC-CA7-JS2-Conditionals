@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Andrew Chamroeun">
+    <title>Bear Hunter Ninja</title>
+</head>
+<body>
+    <h1>Bear Hunter Ninja</h1>
+
+    <!-- This paragraph will display the game results. -->
+    <p id="demo">Your game results will appear here.</p>
+
+    <script>
+        // Ask the player for their name.
+        let playerName = prompt("Welcome to Bear Hunter Ninja! What is your name?");
+
+        // Greet the player using their name.
+        alert(`Hi ${playerName} Let's Play!!`);
+
+        // Ask the player to choose Bear, Ninja, or Hunter.
+        let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+
+        // Set the computer's choice to Bear for this first version.
+        let computerChoice = "Bear";
+
+        // Create a message showing the player's and computer's choices.
+        let gameResults = `${playerName}, You picked ${playerChoice}! The computer picked ${computerChoice}!`;
+
+        // Display the results on the webpage.
+        document.getElementById("demo").innerHTML = gameResults;
+
+        // Display the same results in the browser console.
+        console.log(gameResults);
+    </script>
+</body>
+</html>
