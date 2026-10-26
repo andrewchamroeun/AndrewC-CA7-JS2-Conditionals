@@ -1,79 +1,88 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Andrew Chamroeun">
+    <meta name="description" content="Bear Hunter Ninja game">
     <title>Bear Hunter Ninja</title>
 </head>
 <body>
 
     <h1>Bear Hunter Ninja</h1>
 
+    <!-- This paragraph displays the game results on the webpage. -->
     <p id="gameResult"></p>
 
     <script>
-        // Ask the player for their name.
-        let playerName = prompt("Welcome to Bear Hunter Ninja! Enter your name to get started.");
+        // Ask the player for their name using the required opening prompt.
+        let playerName = prompt("What is your name?");
 
-        // Greet the player using their name.
-        alert("Hi " + playerName + " Let's Play!!");
+        // Greet the player with their name.
+        alert("Hi " + playerName + " Let\'s Play!!");
 
         // Ask the player to choose Bear, Ninja, or Hunter.
         let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
 
-        // Keep the computer's choice hard-coded to Bear.
-        let computerChoice = "Bear";
+        // The computer's choice stays hard-coded to Bear.
+        const computerChoice = "Bear";
 
-        // Create a variable to store the result of the game.
-        let gameResult;
+        // Store the outcome of the game.
+        let gameResult = "";
 
-        // Use a switch statement to evaluate the player's choice.
+        // Use switch to evaluate the player's choice.
         switch (playerChoice) {
             case "Bear":
-                // Both choices are Bear, so the game is a tie.
+                // Bear ties with Bear and loses to Ninja.
                 if (computerChoice === "Bear") {
                     gameResult = "Tie!!";
                 } else if (computerChoice === "Ninja") {
-                    gameResult = "You Win!!";
-                } else {
                     gameResult = "You Lose!!";
+                } else if (computerChoice === "Hunter") {
+                    gameResult = "You Win!!";
                 }
                 break;
 
             case "Ninja":
-                // Ninja beats Hunter but loses to Bear.
+                // Ninja loses to Bear, ties with Ninja, and beats Hunter.
                 if (computerChoice === "Bear") {
                     gameResult = "You Lose!!";
                 } else if (computerChoice === "Ninja") {
                     gameResult = "Tie!!";
-                } else {
+                } else if (computerChoice === "Hunter") {
                     gameResult = "You Win!!";
                 }
                 break;
 
             case "Hunter":
-                // Hunter beats Bear but loses to Ninja.
+                // Hunter beats Bear, loses to Ninja, and ties with Hunter.
                 if (computerChoice === "Bear") {
                     gameResult = "You Win!!";
                 } else if (computerChoice === "Ninja") {
                     gameResult = "You Lose!!";
-                } else {
+                } else if (computerChoice === "Hunter") {
                     gameResult = "Tie!!";
                 }
                 break;
         }
 
-        // Combine the player's choice, computer's choice, and outcome.
+        // Build the result using separate lines for the player and computer.
         let finalMessage = playerName + " chose " + playerChoice
             + ", computer chose " + computerChoice
             + ", " + gameResult;
 
-        // Display the result on the HTML page.
-        document.getElementById("gameResult").textContent = finalMessage;
+        // Display the result on the webpage, with the outcome on a new line.
+        document.getElementById("gameResult").innerHTML =
+            playerName + " chose " + playerChoice
+            + ", computer chose " + computerChoice
+            + "<br>" + gameResult;
 
-        // Display the same result in the browser console.
-        console.log(finalMessage);
+        // Display the same result on separate lines in the console.
+        console.log(playerName + " chose " + playerChoice
+            + ", computer chose " + computerChoice);
+        console.log(gameResult);
 
     </script>
 
